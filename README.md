@@ -17,3 +17,7 @@ Learning ClojureScript.
 
    - Very enterprise-y
    - Downloads docs, etc... Seems very pro but unusable (too heavy) for a web dev coming from Atom/VSCode
+
+3. Theming:
+   - Borealis is a special Clojure theme. Added to VSCode ...
+   - https://marketplace.visualstudio.com/items?itemName=Misophistful.borealis-theme
