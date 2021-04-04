@@ -53,3 +53,80 @@ he
 ; Syntax error compiling at (.calva/output-window/output.calva-repl:0:0).
 ; Unable to resolve symbol: he in this context
 clj꞉hello꞉> 
+(hello-time)
+; Syntax error compiling at (.calva/output-window/output.calva-repl:56:1).
+; Unable to resolve symbol: hello-time in this context
+
+clj꞉hello꞉> (run)
+; Execution error (ArityException) at hello/eval11044 (REPL:59).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> 
+; Execution error (ArityException) at hello/eval11046 (REPL:60).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> (run)
+; Execution error (ArityException) at hello/eval11048 (REPL:66).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> 
+; Execution error (ArityException) at hello/eval11050 (REPL:66).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> (run)
+; Execution error (ArityException) at hello/eval11052 (REPL:72).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> (now)
+; Syntax error compiling at (.calva/output-window/output.calva-repl:75:13).
+; Unable to resolve symbol: now in this context
+clj꞉hello꞉> (hello-time/now
+             )
+#object[java.time.Instant 0x16a3fcd9 "2021-04-04T15:21:03.646637Z"]
+clj꞉hello꞉> (hello-time/time-str (hello-time/now))
+; Execution error (ArityException) at hello/eval11057 (REPL:81).
+; Wrong number of args (0) passed to: hello-time/time-str
+clj꞉hello꞉> 
+"06:21 PM"
+clj꞉hello꞉> (hello/run)
+; Execution error (ArityException) at hello/eval11061 (REPL:86).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> 
+; Execution error (ArityException) at hello/eval11063 (REPL:86).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> (hello/run 'c')
+; Execution error (ArityException) at hello/eval11065 (REPL:92).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> 
+Hello world, the time is 06:23 PM
+nil
+clj꞉hello꞉> 
+(hello/run)
+; Execution error (ArityException) at hello/eval11069 (REPL:99).
+; Wrong number of args (0) passed to: hello/run
+clj꞉hello꞉> 
+(hello/message
+ )
+; Syntax error compiling at (.calva/output-window/output.calva-repl:103:1).
+; No such var: hello/message
+clj꞉hello꞉> 
+; Evaluating file: hello.clj
+#'hello/message
+clj꞉hello꞉> 
+(hello/message
+ )
+Hello world, the time is 06:25 PM
+nil
+clj꞉hello꞉> 
+; Evaluating file: hello.clj
+#'hello/run
+clj꞉hello꞉> 
+(hello/message
+ )
+Hello world, the time is 06:26 PM
+nil
+clj꞉hello꞉> 
+(hello/run)
+Hello world, the time is 06:26 PM
+nil
+clj꞉hello꞉> 
+(hello/message
+ )
+Hello world, the time is 06:26 PM
+nil
+clj꞉hello꞉> 
