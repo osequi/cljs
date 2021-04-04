@@ -1,0 +1,55 @@
+; This is the Calva evaluation results output window.
+; TIPS: The keyboard shortcut `ctrl+alt+c o` shows and focuses this window
+;   when connected to a REPL session.
+; Please see https://calva.io/output/ for more info.
+; Happy coding! ♥️
+
+; Jacking in...
+; Starting Jack-in Terminal: clojure -Sdeps '{:deps {nrepl/nrepl {:mvn/version,"0.8.3"},cider/cider-nrepl {:mvn/version,"0.25.8"}}}'  -m nrepl.cmdline --middleware "[cider.nrepl/cider-middleware]"
+; Hooking up nREPL sessions...
+; Connected session: clj
+; TIPS: 
+;   - You can edit the contents here. Use it as a REPL if you like.
+;   - `alt+enter` evaluates the current top level form.
+;   - `ctrl+enter` evaluates the current form.
+;   - `alt+up` and `alt+down` traverse up and down the REPL command history
+;      when the cursor is after the last contents at the prompt
+;   - Clojure lines in stack traces are peekable and clickable.
+clj꞉user꞉>  ; Use `alt+enter` to evaluate
+; Jack-in done.
+clj꞉user꞉> 
+nil
+clj꞉hello꞉> 
+; Syntax error compiling at (deps.edn:0:0).
+; No such namespace: time-lib
+clj꞉user꞉> 
+#'hello/run
+clj꞉hello꞉> 
+#'hello/run
+clj꞉hello꞉> 
+#'hello/run
+clj꞉hello꞉> 
+#'hello-time/now
+clj꞉hello-time꞉> 
+#'hello-time/time-str
+clj꞉hello-time꞉> 
+#'hello/run
+clj꞉hello꞉> 
+#'hello/run
+clj꞉hello꞉> 
+nil
+clj꞉hello꞉> 
+hello/run
+#function[hello/run]
+clj꞉hello꞉> 
+run
+#function[hello/run]
+clj꞉hello꞉> 
+helo
+; Syntax error compiling at (.calva/output-window/output.calva-repl:0:0).
+; Unable to resolve symbol: helo in this context
+clj꞉hello꞉> 
+he
+; Syntax error compiling at (.calva/output-window/output.calva-repl:0:0).
+; Unable to resolve symbol: he in this context
+clj꞉hello꞉> 
