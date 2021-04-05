@@ -6,6 +6,8 @@ Learning ClojureScript.
 2. Run code
 3. Write better code
 
+Meantime, get [excited](/WOWs.md)
+
 ## 1. Write code
 
 - Start with any editor.
@@ -26,7 +28,7 @@ Learning ClojureScript.
 ## 4. IDE
 
 1. [Editor](/EDITORS.md)
-2. REPL
+2. [REPL](/REPL.md)
 3. Dependencies
 4. Packaging
 5. Testing
