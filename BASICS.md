@@ -2,12 +2,15 @@
 
 ## Concepts
 
-- **Structural**: Clojure is a LISP and therefore the code is structural.
-- **S-expressions (forms)**: Everything is organized in ”forms”, aka S-expressions (sexprs).
-- **Form**: literal | symbol | literal collection
-- **Paredit**: Structural editing and navigation
+- **Structural**:
+  - Clojure is a LISP and therefore the code is structural.
+  - It's not lines and strings but structures.
+  - Therefore there it is a very special **structural editing and navigation** (Paredit).
+- **S-expressions (forms)**:
+  - Everything is organized in ”forms”, aka S-expressions (sexprs).
+  - Form === literal | symbol | literal collection
 
-## Structural editing
+## Structural editing and navigation
 
 - Arrows:
 
