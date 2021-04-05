@@ -10,6 +10,8 @@
   - Everything is organized in ”forms”, aka S-expressions (sexprs).
   - Form === literal | symbol | literal collection
 
+See [basics.clj](/basics/basics.clj)
+
 ## Structural editing and navigation
 
 - Arrows:
@@ -24,3 +26,4 @@
 ## Sources:
 
 - `hello_paredit.clj`
+- [Clojure in a nutshell by James Trunk](https://youtu.be/C-kF25fWTO8)
