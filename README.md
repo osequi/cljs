@@ -23,7 +23,8 @@ Meantime, get [excited](/WOWs.md)
 ## 3. Write better code
 
 1. Get an IDE
-2. Learn from others
+2. Learn the [basics](/BASICS.md)
+3. Learn from others
 
 ## 4. IDE
 
