@@ -24,7 +24,8 @@ Meantime, get [excited](/WOWs.md)
 
 1. Get an IDE
 2. Learn the [basics](/BASICS.md)
-3. Learn from others
+3. Learn the [essence](/ESSENCE.md)
+4. Learn from others
 
 ## 4. IDE
 
@@ -34,6 +35,10 @@ Meantime, get [excited](/WOWs.md)
 4. Packaging
 5. Testing
 6. Documenting
+
+## 5. Essence
+
+1. Clojure is a [cult](/META.md).
 
 ## Learn from others
 
