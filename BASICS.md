@@ -4,8 +4,8 @@
 
 - **Structural**:
   - Clojure is a LISP and therefore the code is structural.
-  - It's not lines and strings but structures.
-  - Therefore there it is a very special **structural editing and navigation** (Paredit).
+  - It's not lines and strings of code but structures, data.
+  - This implies a special **structural editing and navigation** (Paredit).
 - **S-expressions (forms)**:
   - Everything is organized in ”forms”, aka S-expressions (sexprs).
   - Form === literal | symbol | literal collection
