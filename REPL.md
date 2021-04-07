@@ -1,5 +1,7 @@
 # REPLs
 
+- When there is an error in the code the REPL gives Syntax error on evaluation
+
 ## Calva
 
 - https://calva.io/getting-started/
