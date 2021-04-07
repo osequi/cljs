@@ -53,6 +53,13 @@
 ;; "Spaces and chars are blank"
   (= true (string/blank? " \n \t  "))
 
+;; Tricks
+ ;; 
+ ;;  Are strings arrays?
+ ;;   No, they are Literals
+ ;;   There are no arrays in Clojure, there are literals and literal collections
+ ;;  Are strings collection of chars?
+ ;;   Yes, they are   (???) 
 
 ;; Symbols
 ;; =========
@@ -88,6 +95,14 @@ false
 ;; https://clojure.org/reference/data_structures
 ;; Clojure Data Structures Part 2 - Rich Hickey https://www.youtube.com/watch?v=sp2Zv7KFQQ0
 ;; General Data Structures Theory: https://www.geeksforgeeks.org/data-structures/ -> check it only when it's inevitable (???)
+;; 
+;; Tricks
+;; !!!!!!!
+;; 
+;; - Lists and vectors are equal when their values are equal.
+;; - This is interesting; lists and vectors differs only in how they manipulate their elements
+;; - Values are the most important; how they are represented are secondary; even switchable.
+
 
 ;; Sequential : https://clojure.org/guides/learn/sequential_colls
 ;; ----------
@@ -123,7 +138,7 @@ false
 ;; "Equality with collections is in terms of values"
   ; Tricky
   (= (list 1 2 3) (vector 1 2 3))
-  (= (list 1 2 3) [1 2 3])
+  (= '(1 2 3) [1 2 3])
 
 (def vector [1 2 3])
 (def list '("a" "b" "c"))
