@@ -5,7 +5,7 @@
             [clojure.string :as string]
             [clojure.repl :refer [source apropos dir pst doc find-doc]]))
 
-;; Basics
+;; # Basics
 ;; 
 ;; This is the essence of Clojure.
 ;; 
@@ -16,10 +16,11 @@
 ;; Perhaps dev time will be considerable reduced, more joy inflicted, confidenece achieved.
 ;; 
 ;; Once learnt ... practice: http://www.clojurekoans.com/
+;; Check: https://clojurebridge.org/
 ;; 
 
-;; Literals
-;; =========
+;; # Literals
+;; 
 ;; https://clojure.org/guides/learn/syntax
 ;; https://clojure.org/api/cheatsheet
 ;; https://clojure.org/reference/data_structures
@@ -61,8 +62,8 @@
  ;;  Are strings collection of chars?
  ;;   Yes, they are   (???) 
 
-;; Symbols
-;; =========
+ 
+;; # Symbols
 ;; 
 ;; Symbols are composed of letters, numbers, and other punctuation
 ;; Used to refer to something else, like a function, value, namespace
@@ -90,25 +91,21 @@ false
 
 
 
-;; Literal collections
-;; =====================
+;; # Literal collections
+;; 
 ;; https://clojure.org/reference/data_structures
 ;; Clojure Data Structures Part 2 - Rich Hickey https://www.youtube.com/watch?v=sp2Zv7KFQQ0
 ;; General Data Structures Theory: https://www.geeksforgeeks.org/data-structures/ -> check it only when it's inevitable (???)
+
+
+;; ## Sequential collections
+;; - Ordered
 ;; 
-;; Tricks
-;; !!!!!!!
-;; 
-;; - Lists and vectors are equal when their values are equal.
-;; - This is interesting; lists and vectors differs only in how they manipulate their elements
-;; - Values are the most important; how they are represented are secondary; even switchable.
+;; https://clojure.org/guides/learn/sequential_colls
 
 
-;; Sequential : https://clojure.org/guides/learn/sequential_colls
-;; ----------
-
-;; List
-;; //////////
+;; ### Lists
+;; - Inserts at the beginning
 
 '(1 2 3) 
 (1 2 3) ;; Works not. It's nothing without the quoting (the ').
@@ -123,8 +120,9 @@ false
 ;; Nothing is complicated here. 
 ;; Just good to know how different the std lib functions behave.
 
-;; Vector
-;; /////////
+
+;; ### Vectors
+;; - Inserts at the end
 
 [1 2 3] 
 [1, 2, 3] ;; Vector. Space is a separator in Lisp, no need for ,
@@ -140,24 +138,65 @@ false
   (= (list 1 2 3) (vector 1 2 3))
   (= '(1 2 3) [1 2 3])
 
-(def vector [1 2 3])
-(def list '("a" "b" "c"))
+(def vct [1 2 3])
+(def lst '("a" "b" "c"))
 
-(get vector 0) ;; Gets the nth element. Vectors are indexed
-(get list 1) ;; Error. Lists are not indexed.
-(first list) ;; => a
-(first (rest list)) ;; => b
-(count vector) ;; Works
-(count list) ;; Works
-(conj vector 4) ;; Adds a new element to the end.
-(conj list "d") ;; Adds a new element to the start.
+(get vct 0) ;; Gets the nth element. Vectors are indexed
+(get lst 1) ;; Error. Lists are not indexed.
+(first lst) ;; => a
+(first (rest lst)) ;; => b
+(count vct) ;; Works
+(count lst) ;; Works
+(conj vct 4) ;; Adds a new element to the end.
+(conj lst "d") ;; Adds a new element to the start.
+  
+;; Tricks
+;; !!!!!!!
+;; 
+;; - Lists and vectors are equal when their values are equal.
+;; - This is interesting; lists and vectors differs only in how they manipulate their elements
+;; - Values are the most important; how they are represented are secondary; even switchable.
+;;
+;; - More, vectors, lists can be merged into sets
+;; - A set can be zipmapped into a map
+;; 
 
 
-;; Hashed: https://clojure.org/guides/learn/hashed_colls
-;; -------
+;; ## Hashed collections
+;; - Unordered
+;; - Designed for lookup
+;; 
+;; https://clojure.org/guides/learn/hashed_colls
 
-;; Map 
-;; ///////  
+;; ### Sets 
+;; - Unordered
+;; - No duplicates
+;; - Ideal to check if a coll contains an element, or to remove an arbitrary element 
+;; - `sorted-set` creates a sorted set (ordered set)
+;; - It's a math set: union, intersection, difference ...
+
+#{1 2 3} ;; Set  
+
+(def players #{"Alice", "Bob", "Kelly"})
+(conj players "Fred") ; unordered: #{"Alice" "Kelly" "Fred" "Bob"}
+(conj players "Alice"); no duplicates: #{"Alice" "Kelly" "Bob"}
+
+(def new-players ["Tim" "Sue" "Greg"])
+(into players new-players) ; Vector merged into a set !!!
+
+(def new-players-list '("Alika" 12))
+(into players new-players-list) ; List merged into a set
+
+(contains? players "Fred") ; easy find
+(disj players "Alice") ; easy remove
+
+;; ### Maps
+;; - Unordered
+;; - No duplicates (On adding a duplicate the values are merged up)
+;; - Ideal or domain application data (JSON like) or Key/values map (literal map)
+;; - `sorted-map` creates an ordered map
+;; - `zipmap`: converts a set into a map  
+;; - Records is an alternative to domain app data maps
 
 {:name "John" :age 12} ;; Map, for domain application data
 {"John" 12} ;; Map, for key-values (Literal map / Hash map, Dictionary)
@@ -170,8 +209,18 @@ false
 (first (keys literal-map)) ;; Works
 (find literal-map "John") ;; Works
 (contains? literal-map "John") ;; Works
+(assoc literal-map "Bob" 100) ;; Unordered, still inserts at the last position
 
-;; Set 
-;; ////////
+(def domain-map {:name "Osequi"
+                 :address {:street "internet"
+                           :nr "infinite"
+                           :state "universe"}}) 
+(get-in domain-map [:address :state]) ; Kinda destructuring
 
-#{1 2 3} ;; Set
+;; Koans
+;; 
+;; "Maps can be used as functions to do lookups"
+  (= 1 ({:a 1 :b 2} :a))
+
+;; "And so can keywords"
+  (= 1 (:a {:a 1 :b 2}))
