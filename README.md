@@ -22,26 +22,7 @@ Meantime, get [excited](/WOWs.md)
 
 ## 3. Write better code
 
-1. Get an IDE
+1. Get an [IDE](/IDE.md)
 2. Learn the [basics](/BASICS.md)
 3. Learn the [essence](/ESSENCE.md)
-4. Learn from others
-
-## 4. IDE
-
-1. [Editor](/EDITORS.md)
-2. [REPL](/REPL.md)
-3. Dependencies
-4. Packaging
-5. Testing
-6. Documenting
-
-## 5. Essence
-
-1. Clojure is a [cult](/META.md).
-
-## Learn from others
-
-### News:
-
-- https://bilbof.com/blogosphere/tags/clojure
+4. Learn from [others](/RESOURCES.md)

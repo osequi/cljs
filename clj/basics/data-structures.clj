@@ -1,4 +1,4 @@
-(ns basics
+(ns data-structures
   ;; This enables using of `(doc XXX)` in the REPL
   ;; However https://clojuredocs.org/ gives better info
   (:require [clojure.java.javadoc :refer [javadoc]]
@@ -18,6 +18,11 @@
 ;; Once learnt ... practice: http://www.clojurekoans.com/
 ;; Check: https://clojurebridge.org/
 ;; 
+;; 
+;; TOC
+;; - Literals
+;; - Literal collections
+;; - Functions
 
 ;; # Literals
 ;; 
@@ -96,6 +101,12 @@ false
 ;; https://clojure.org/reference/data_structures
 ;; Clojure Data Structures Part 2 - Rich Hickey https://www.youtube.com/watch?v=sp2Zv7KFQQ0
 ;; General Data Structures Theory: https://www.geeksforgeeks.org/data-structures/ -> check it only when it's inevitable (???)
+;; 
+;; - There are common operations / functions across all colls (get, contains? etc)
+;; - There are special operations for each coll (conj, assoc)
+;; - Every coll has it's own purpose when to use 
+;; - Colls can be interchanged between each other (set -> map -> list -> vector -> map ...)
+;; - Perhaps to run special operations specific to the coll type
 
 
 ;; ## Sequential collections
@@ -224,3 +235,8 @@ false
 
 ;; "And so can keywords"
   (= 1 (:a {:a 1 :b 2}))
+
+
+
+;; ## Functions
+;; 
