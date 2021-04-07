@@ -18,11 +18,7 @@
 ;; Once learnt ... practice: http://www.clojurekoans.com/
 ;; Check: https://clojurebridge.org/
 ;; 
-;; 
-;; TOC
-;; - Literals
-;; - Literal collections
-;; - Functions
+
 
 ;; # Literals
 ;; 
@@ -237,6 +233,3 @@ false
   (= 1 (:a {:a 1 :b 2}))
 
 
-
-;; ## Functions
-;; 
