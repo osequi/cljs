@@ -92,11 +92,38 @@ false
 ;; Sequential : https://clojure.org/guides/learn/sequential_colls
 ;; ----------
 
-'(1 2 3) ;; List
+;; List
+;; //////////
+
+'(1 2 3) 
 (1 2 3) ;; Works not. It's nothing without the quoting (the ').
 
-[1 2 3] ;; Vector
+;; Koans
+;; 
+
+;; "The rest, when nothing is left, is empty"
+  (= () (rest '(100))) ;; not nil
+
+;; One should get to use to lists; 
+;; Nothing is complicated here. 
+;; Just good to know how different the std lib functions behave.
+
+;; Vector
+;; /////////
+
+[1 2 3] 
 [1, 2, 3] ;; Vector. Space is a separator in Lisp, no need for ,
+
+;; Koans
+;; 
+
+;; "Slice doesn't include the last element"
+  (= [:butter :and] (subvec [:peanut :butter :and :jelly] 1 3))
+
+;; "Equality with collections is in terms of values"
+  ; Tricky
+  (= (list 1 2 3) (vector 1 2 3))
+  (= (list 1 2 3) [1 2 3])
 
 (def vector [1 2 3])
 (def list '("a" "b" "c"))
@@ -114,9 +141,11 @@ false
 ;; Hashed: https://clojure.org/guides/learn/hashed_colls
 ;; -------
 
+;; Map 
+;; ///////  
+
 {:name "John" :age 12} ;; Map, for domain application data
 {"John" 12} ;; Map, for key-values (Literal map / Hash map, Dictionary)
-#{1 2 3} ;; Set
 
 (def literal-map {"John" 12, "Alice" "unknown"})
 (get literal-map "John") ;; Works
@@ -126,3 +155,8 @@ false
 (first (keys literal-map)) ;; Works
 (find literal-map "John") ;; Works
 (contains? literal-map "John") ;; Works
+
+;; Set 
+;; ////////
+
+#{1 2 3} ;; Set
