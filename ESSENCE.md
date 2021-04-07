@@ -1,9 +1,11 @@
 # Essence
 
+- General purpose
+- Dynamic
 - Pure functions
 - Immutable data: Clojure programming == pure functions(immutable values) => immutable values
 - Performant state management
-- Simple programming (2-5x les code to write)
+- Simple programming (2-5x les code to write, almost no syntax)
 - Information systems programming (involves humans, unlike artificial programming, like compilers) with loose-coupling and data-driven interfaces
 - Opinionated
 - Community: supportive, positive, respect
