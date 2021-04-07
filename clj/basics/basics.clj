@@ -1,3 +1,10 @@
+(ns basics
+  ;; This enables using of `(doc XXX)` in the REPL
+  ;; However https://clojuredocs.org/ gives better info
+  (:require [clojure.java.javadoc :refer [javadoc]]
+            [clojure.string :as string]
+            [clojure.repl :refer [source apropos dir pst doc find-doc]]))
+
 ;; Basics
 ;; 
 ;; This is the essence of Clojure.
@@ -20,13 +27,31 @@
 1 ;; Number
 "String" ;; String
 \x ;; Character
-#... ;; Regexp
+#;; Regexp
 
 ;; Koans 
 ;; 
 
-;; "But a looser equality is also possible"
-  (= true (== 2.0 2))
+;;"But a looser equality is also possible"
+ (= true (== 2.0 2))
+
+;;"You can even get certain characters"
+ (= \C (get "Characters" 0))
+
+;; "Or even count the characters"
+(= 11 (count "Hello World"))
+
+;; "Empty string is string"
+(= true (string? ""))
+
+;; "Empty string is blank"
+  (= true (string/blank? ""))
+
+;; "Spaces are blank"
+  (= true (string/blank? "    "))
+
+;; "Spaces and chars are blank"
+  (= true (string/blank? " \n \t  "))
 
 
 ;; Symbols
@@ -47,6 +72,9 @@ map ;; Works. Refers to the `map` function
 nil ;; Works
 true
 false
+
+;; Koans
+;; 
 
 ;; Returns a Keyword / Symbol with the given namespace and name.  Do not use : in the keyword strings, it will be added automatically.
 (keyword :xxx) ; Works
