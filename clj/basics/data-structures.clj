@@ -6,22 +6,22 @@
             [clojure.repl :refer [source apropos dir pst doc find-doc]]))
 
 ;; # Basics
-;; 
+;;
 ;; This is the essence of Clojure.
-;; 
+;;
 ;; This is where Javascript sucks.
-;; This, again, might be a tricky part. 
+;; This, again, might be a tricky part.
 ;; The small details, the fine print must be understood.
 ;; If this level is mastered the rest will follow.
 ;; Perhaps dev time will be considerable reduced, more joy inflicted, confidenece achieved.
-;; 
+;;
 ;; Once learnt ... practice: http://www.clojurekoans.com/
 ;; Check: https://clojurebridge.org/
-;; 
+;;
 
 
 ;; # Literals
-;; 
+;;
 ;; https://clojure.org/guides/learn/syntax
 ;; https://clojure.org/api/cheatsheet
 ;; https://clojure.org/reference/data_structures
@@ -31,8 +31,8 @@
 \x ;; Character
 #;; Regexp
 
-;; Koans 
-;; 
+;; Koans
+;;
 
 ;;"But a looser equality is also possible"
  (= true (== 2.0 2))
@@ -56,22 +56,22 @@
   (= true (string/blank? " \n \t  "))
 
 ;; Tricks
- ;; 
+ ;;
  ;;  Are strings arrays?
  ;;   No, they are Literals
  ;;   There are no arrays in Clojure, there are literals and literal collections
  ;;  Are strings collection of chars?
- ;;   Yes, they are   (???) 
+ ;;   Yes, they are   (???)
 
- 
+
 ;; # Symbols
-;; 
+;;
 ;; Symbols are composed of letters, numbers, and other punctuation
 ;; Used to refer to something else, like a function, value, namespace
 
 xxx ;; Fails (Refers to nothing)
 :xxx ;; Works. (It's a keyword / attribute name. It refers to itself)
-'xxx ;; Works. Quoting (') delays evaluation. 
+'xxx ;; Works. Quoting (') delays evaluation.
 
 map ;; Works. Refers to the `map` function
 
@@ -83,9 +83,10 @@ true
 false
 
 ;; Koans
-;; 
+;;
 
-;; Returns a Keyword / Symbol with the given namespace and name.  Do not use : in the keyword strings, it will be added automatically.
+;; Returns a Keyword / Symbol with the given namespace and name.
+;; Do not use : in the keyword strings, it will be added automatically.
 (keyword :xxx) ; Works
 (keyword "xxx") ; Works even better
 (symbol "xxx") ; Works
@@ -93,49 +94,49 @@ false
 
 
 ;; # Literal collections
-;; 
+;;
 ;; https://clojure.org/reference/data_structures
 ;; Clojure Data Structures Part 2 - Rich Hickey https://www.youtube.com/watch?v=sp2Zv7KFQQ0
 ;; General Data Structures Theory: https://www.geeksforgeeks.org/data-structures/ -> check it only when it's inevitable (???)
-;; 
+;;
 ;; - There are common operations / functions across all colls (get, contains? etc)
 ;; - There are special operations for each coll (conj, assoc)
-;; - Every coll has it's own purpose when to use 
+;; - Every coll has it's own purpose when to use
 ;; - Colls can be interchanged between each other (set -> map -> list -> vector -> map ...)
 ;; - Perhaps to run special operations specific to the coll type
 
 
 ;; ## Sequential collections
 ;; - Ordered
-;; 
+;;
 ;; https://clojure.org/guides/learn/sequential_colls
 
 
 ;; ### Lists
 ;; - Inserts at the beginning
 
-'(1 2 3) 
+'(1 2 3)
 (1 2 3) ;; Works not. It's nothing without the quoting (the ').
 
 ;; Koans
-;; 
+;;
 
 ;; "The rest, when nothing is left, is empty"
   (= () (rest '(100))) ;; not nil
 
-;; One should get to use to lists; 
-;; Nothing is complicated here. 
+;; One should get to use to lists;
+;; Nothing is complicated here.
 ;; Just good to know how different the std lib functions behave.
 
 
 ;; ### Vectors
 ;; - Inserts at the end
 
-[1 2 3] 
+[1 2 3]
 [1, 2, 3] ;; Vector. Space is a separator in Lisp, no need for ,
 
 ;; Koans
-;; 
+;;
 
 ;; "Slice doesn't include the last element"
   (= [:butter :and] (subvec [:peanut :butter :and :jelly] 1 3))
@@ -156,33 +157,33 @@ false
 (count lst) ;; Works
 (conj vct 4) ;; Adds a new element to the end.
 (conj lst "d") ;; Adds a new element to the start.
-  
+
 ;; Tricks
 ;; !!!!!!!
-;; 
+;;
 ;; - Lists and vectors are equal when their values are equal.
 ;; - This is interesting; lists and vectors differs only in how they manipulate their elements
 ;; - Values are the most important; how they are represented are secondary; even switchable.
 ;;
 ;; - More, vectors, lists can be merged into sets
 ;; - A set can be zipmapped into a map
-;; 
+;;
 
 
 ;; ## Hashed collections
 ;; - Unordered
 ;; - Designed for lookup
-;; 
+;;
 ;; https://clojure.org/guides/learn/hashed_colls
 
-;; ### Sets 
+;; ### Sets
 ;; - Unordered
 ;; - No duplicates
-;; - Ideal to check if a coll contains an element, or to remove an arbitrary element 
+;; - Ideal to check if a coll contains an element, or to remove an arbitrary element
 ;; - `sorted-set` creates a sorted set (ordered set)
 ;; - It's a math set: union, intersection, difference ...
 
-#{1 2 3} ;; Set  
+#{1 2 3} ;; Set
 
 (def players #{"Alice", "Bob", "Kelly"})
 (conj players "Fred") ; unordered: #{"Alice" "Kelly" "Fred" "Bob"}
@@ -202,7 +203,7 @@ false
 ;; - No duplicates (On adding a duplicate the values are merged up)
 ;; - Ideal or domain application data (JSON like) or Key/values map (literal map)
 ;; - `sorted-map` creates an ordered map
-;; - `zipmap`: converts a set into a map  
+;; - `zipmap`: converts a set into a map
 ;; - Records is an alternative to domain app data maps
 
 {:name "John" :age 12} ;; Map, for domain application data
@@ -210,7 +211,7 @@ false
 
 (def literal-map {"John" 12, "Alice" "unknown"})
 (get literal-map "John") ;; Works
-(get literal-map 12) ;; Nil. 
+(get literal-map 12) ;; Nil.
 (get literal-map 12 "Default value when not found") ;; Works
 (first (vals literal-map)) ;; Works
 (first (keys literal-map)) ;; Works
@@ -221,15 +222,13 @@ false
 (def domain-map {:name "Osequi"
                  :address {:street "internet"
                            :nr "infinite"
-                           :state "universe"}}) 
+                           :state "universe"}})
 (get-in domain-map [:address :state]) ; Kinda destructuring
 
 ;; Koans
-;; 
+;;
 ;; "Maps can be used as functions to do lookups"
   (= 1 ({:a 1 :b 2} :a))
 
 ;; "And so can keywords"
   (= 1 (:a {:a 1 :b 2}))
-
-

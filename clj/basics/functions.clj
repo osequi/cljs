@@ -25,6 +25,19 @@
 
 (defn f5 [name] (f2 name))
 (f5 "Alex")
+(f4 (f5 "Alex"))
+
+;; ## Multi-arity
+;; - Different numbers of parameters
+;; - Each arity is a list ([param*] body*)
+;; - One arity can invoke another
+
+(defn arity
+  ([] (arity "Arity"))
+  ([name] (str "Arity: " name)))
+(arity) ; "Arity: Arity"
+(arity "XXX") ; "Arity: XXX"
+
 
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/functions
