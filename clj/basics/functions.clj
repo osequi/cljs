@@ -23,5 +23,8 @@
 (defn f4 [f2] (str "Hello, " f2))
 (f4 (f2 "Alex"))
 
+(defn f5 [name] (f2 name))
+(f5 "Alex")
+
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/functions
