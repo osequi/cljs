@@ -12,11 +12,23 @@
 - However it is programmable / extendable: https://youtu.be/g8dyoO-pRKQ
 - Also Atom is more hackable than VSCode
 
+## Commands / Keymaps
+
+```cson
+'ctrl-; c':       	'chlorine:connect-socket-repl'
+'ctrl-; l':       	'chlorine:load-file'
+'ctrl-enter':       'chlorine:evaluate-block'
+'shift-enter':      'chlorine:evaluate-top-block'
+'escape':  			'chlorine:clear-inline-results'
+'ctrl-; i':       	'chlorine:inspect-block'
+'ctrl-; I':       	'chlorine:inspect-top-block'
+```
+
 ## Calva (for VSCode)
 
 - https://calva.io/getting-started/
 
-### Commands
+### Commands / Keymaps
 
 - `Ctrl+Alt+C Enter` -> Load file
 - `Ctrl Enter` -> Eval anything (forms)
