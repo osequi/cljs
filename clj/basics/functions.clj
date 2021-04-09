@@ -72,6 +72,8 @@
   (string/join ", " (conj rest name)))
 (variadic3 "a" "b" "c") ; "a, b, c"
 
+
+
 ;; Anonymous functions
 ;; - They have no name
 ;; - Usually created on-the-fly when passing it to other functions
@@ -110,6 +112,22 @@
 
 (let [a "aha"] (str a)) ; "aha"
 
+;; ## Koans
+
+;; "Arguments can also be skipped"
+(= "AACC" (#(str "AA" %2) "bb" "CC"))
+
+;; "One function can beget another"
+;; - This is a tricky one: https://stackoverflow.com/questions/41584697/doc-on-how-one-function-can-beget-another-in-clojurescript
+(= 9 (((fn [] +)) 4 5))
+
+;; "Functions can also take other functions as input"
+  (= 20 ((fn [f] (f 4 5))
+           *))
+
+;;  "Higher-order functions take function arguments"
+  (= 25 (#(%1 5)
+          (fn [n] (* n n))))
 
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/functions
