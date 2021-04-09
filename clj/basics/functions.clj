@@ -1,4 +1,4 @@
-(ns functions)
+(ns functions (:require [clojure.string :as string]))
 
 ;; # Functions
 ;;
@@ -9,8 +9,17 @@
 ;;
 
 ;; ## Closures
-;; - Functions are closures: they closes over, they define a lexical scope.
-;; - Nothing else is visible to the outside world than the function name.
+;; 
+;; - Functions are closures: they closes over a lexical scope, they define a lexical scope.
+;; - Outside of a lexical scope (function) nothing else is visible to the world other than the function name.
+;; 
+;; ## TOC 
+;; 
+;; - Arity
+;; - Variadic (&)
+;; - Anonymous #(%)
+;; - Desctructuring (apply)
+;; - Lexical scope (let)
 
 (defn f1 [] "Hello world")
 (f1) ; "Hello world"
@@ -55,12 +64,12 @@
 
 (defn variadic2
   [name & rest]
-  (str "Variadic2: " name ", " (clojure.string/join ", " rest)))
+  (str "Variadic2: " name ", " (string/join ", " rest)))
 (variadic2 "a" "b" "c") ; "Variadic2: a, b, c"
 
 (defn variadic3
   [name & rest]
-  (clojure.string/join ", " (conj rest name)))
+  (string/join ", " (conj rest name)))
 (variadic3 "a" "b" "c") ; "a, b, c"
 
 ;; Anonymous functions
@@ -92,8 +101,8 @@
 
 (defn apply-test [vect] (apply str vect)) ; `vect` is kinda destructured
 (apply-test ["a" "b"]) ; "ab"
-(defn apply-test-2 [vect] (clojure.string/join "" vect)) ; without restructuring
-(apply-test ["a" "b"]) ; "ab"
+(defn apply-test-2 [vect] (string/join "" vect)) ; without restructuring
+(apply-test-2 ["a" "b"]) ; "ab"
 
 ;; Lexical scope
 ;; - let - binds symbols to values in a lexical scope
