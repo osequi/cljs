@@ -8,6 +8,10 @@
 ;; - When they are not pure?
 ;;
 
+;; ## Closures
+;; - Functions are closures: they closes over, they define a lexical scope.
+;; - Nothing else is visible to the outside world than the function name.
+
 (defn f1 [] "Hello world")
 (f1) ; "Hello world"
 
@@ -64,6 +68,7 @@
 ;; - Usually created on-the-fly when passing it to other functions
 ;; - Instead `defn` they are created with `fn
 ;; - Short syntax: `#()`
+;; - Arity works different: no `()` needed
 
 (fn  [message]  (str message)) ; #object[functions$eval5552$fn__5553 0x960c8a3 "functions$eval5552$fn__5553@960c8a3"]
 
@@ -72,6 +77,30 @@
 (#(str "Always visible " %) "param") ; "Always visible param"
 (#(str "Always visible " %1 " " %2) "param1" "param2") ; "Always visible param1 param2"
 (#(str "Always visible " %1 " " %2 " " %&) "param1" "param2" "Rest") ; "Always visible param1 param2 (\"Rest\")"
+
+((fn [x] ([x])) "a") ; class clojure.lang.ArityException
+((fn [x] [x]) "a") ; ["a"]
+(#([%]) "a") ; class clojure.lang.ArityException
+(#(vector %) "a") ; ["a"]
+
+
+;; Apply
+;; - Invokes a function with arguments as sequence
+;; - Useful for 'destructuring' arguments
+
+(= (apply str '("a" "b")) (str "a" "b")) ; true
+
+(defn apply-test [vect] (apply str vect)) ; `vect` is kinda destructured
+(apply-test ["a" "b"]) ; "ab"
+(defn apply-test-2 [vect] (clojure.string/join "" vect)) ; without restructuring
+(apply-test ["a" "b"]) ; "ab"
+
+;; Lexical scope
+;; - let - binds symbols to values in a lexical scope
+;; - Outside the lexical scope the symbols stop existing (Like in any other language)
+
+(let [a "aha"] (str a)) ; "aha"
+
 
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/functions
