@@ -47,13 +47,13 @@
 (= true (string? ""))
 
 ;; "Empty string is blank"
-  (= true (string/blank? ""))
+(= true (string/blank? ""))
 
 ;; "Spaces are blank"
-  (= true (string/blank? "    "))
+(= true (string/blank? "    "))
 
 ;; "Spaces and chars are blank"
-  (= true (string/blank? " \n \t  "))
+(= true (string/blank? " \n \t  "))
 
 ;; Tricks
  ;;
@@ -92,7 +92,6 @@ false
 (symbol "xxx") ; Works
 
 
-
 ;; # Literal collections
 ;;
 ;; https://clojure.org/reference/data_structures
@@ -122,7 +121,7 @@ false
 ;;
 
 ;; "The rest, when nothing is left, is empty"
-  (= () (rest '(100))) ;; not nil
+(= () (rest '(100))) ;; not nil
 
 ;; One should get to use to lists;
 ;; Nothing is complicated here.
@@ -139,12 +138,12 @@ false
 ;;
 
 ;; "Slice doesn't include the last element"
-  (= [:butter :and] (subvec [:peanut :butter :and :jelly] 1 3))
+(= [:butter :and] (subvec [:peanut :butter :and :jelly] 1 3))
 
 ;; "Equality with collections is in terms of values"
   ; Tricky
-  (= (list 1 2 3) (vector 1 2 3))
-  (= '(1 2 3) [1 2 3])
+(= (list 1 2 3) (vector 1 2 3))
+(= '(1 2 3) [1 2 3])
 
 (def vct [1 2 3])
 (def lst '("a" "b" "c"))
@@ -228,7 +227,7 @@ false
 ;; Koans
 ;;
 ;; "Maps can be used as functions to do lookups"
-  (= 1 ({:a 1 :b 2} :a))
+(= 1 ({:a 1 :b 2} :a))
 
 ;; "And so can keywords"
-  (= 1 (:a {:a 1 :b 2}))
+(= 1 (:a {:a 1 :b 2}))
