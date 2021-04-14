@@ -4,7 +4,7 @@
 ;; - `if`, `if-not`, `when`, `cond`, `case` seems not well thought and complicated.
 ;; - Here firm rules / idioms has to be set up, otherwise one can be easily lost.
 ;; - Here I felt first time the docs are (infamously) not enough
-;; - The Clojure Stle Guide might help: https://guide.clojure.style/#when-instead-of-single-branch-if. 
+;; - The Clojure Style Guide might help: https://guide.clojure.style/#when-instead-of-single-branch-if. 
 
 
 ;; Some general truths:
