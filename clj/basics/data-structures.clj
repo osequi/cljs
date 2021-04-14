@@ -36,6 +36,7 @@
 
 ;;"But a looser equality is also possible"
  (= true (== 2.0 2))
+(= false (= 2.0 2))
 
 ;;"You can even get certain characters"
  (= \C (get "Characters" 0))
