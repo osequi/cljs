@@ -94,6 +94,10 @@
 
 ((fn [x] ([x])) "a") ; class clojure.lang.ArityException
 ((fn [x] [x]) "a") ; ["a"]
+((fn [x] x) "a") ; "a"
+((fn [x] (x)) "a") ; Execution error
+((fn [x] '(x)) "a") ; (x) 
+((fn [x] (list x)) "a") ; ("a")
 (#([%]) "a") ; class clojure.lang.ArityException
 (#(vector %) "a") ; ["a"]
 
@@ -148,7 +152,7 @@
 
 ;;  "Higher-order functions take function arguments"
 ;;  - The anonymous function is a HOC, it's argument being a function.
-  (= 25 (#(%1 5)
+  (= 25 (#(% 5)
           (fn [n] (* n n))))
 
 ;; ## Resources

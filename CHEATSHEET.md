@@ -54,7 +54,7 @@
 
 ```clj
 ;; "Equality with collections is in terms of values"
-(= (list 1 2 3) (vector 1 2 3))
+(= '(1 2 3) [1 2 3])
 ```
 
 ## Maps
@@ -69,4 +69,36 @@
 ```clj
 ;; "Arguments can also be skipped"
 (= "AACC" (#(str "AA" %2) "bb" "CC"))
+```
+
+### Multi-arity
+
+```clj
+;; One arity can invoke another
+(defn arity
+  ([] (arity "Arity"))
+  ([name] (str "Arity: " name)))
+```
+
+### Variadic
+
+```clj
+;; The variadic parts are collected into a sequence
+(defn variadic
+  [name & rest]
+  (str "Variadic: " name " " rest))
+(variadic "First") ; "Variadic: First"
+(variadic "First" "Second") ; "Variadic: First(\"Second\")"
+```
+
+### Anonymous
+
+```clj
+;; `[arguments] body` vs. the default `[arguments] (body)`
+((fn [x] ([x])) "a") ; class clojure.lang.ArityException
+((fn [x] [x]) "a") ; ["a"]
+((fn [x] x) "a") ; "a"
+((fn [x] (x)) "a") ; Execution error
+((fn [x] '(x)) "a") ; (x)
+((fn [x] (list x)) "a") ; ("a")
 ```

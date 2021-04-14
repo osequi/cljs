@@ -28,7 +28,7 @@
 ;; ### if
 ;; - Single expressions for both branches.
 ;; - If multiple expressions required use `do`.
-;; - However `do` usage is suggested only in case of side-effects.
+;; - However `do` usage is suggested only in case of side-effects (Why?)
 ;; 
 ;; ### if-not
 ;; - `(if-not test then)` `(if-not test then else)`
@@ -60,3 +60,4 @@
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/flow
 ;; - https://clojuredocs.org/clojure.core/if
+;; - https://guide.clojure.style/#idioms
