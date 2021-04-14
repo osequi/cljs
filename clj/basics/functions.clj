@@ -147,13 +147,15 @@
 
 ;; "Functions can also take other functions as input"
 ;; - This is a HOC receiving the `*` function
-  (= 20 ((fn [f] (f 4 5))
-           *))
+(= 20 ((fn [f] (f 4 5))
+       *))
 
 ;;  "Higher-order functions take function arguments"
 ;;  - The anonymous function is a HOC, it's argument being a function.
-  (= 25 (#(% 5)
-          (fn [n] (* n n))))
+(= 25 (#(% 5)
+       (fn [n] (* n n))))
+
+(= 25 (#(% 5) #(* % %))
 
 ;; ## Resources
 ;; - https://clojure.org/guides/learn/functions

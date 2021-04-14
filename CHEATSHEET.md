@@ -102,3 +102,24 @@
 ((fn [x] '(x)) "a") ; (x)
 ((fn [x] (list x)) "a") ; ("a")
 ```
+
+### Higher order
+
+```clj
+;; Returns the `+` function
+(fn [] +)
+(= 9 (((fn [] +)) 4 5))
+```
+
+```clj
+;; Returns a function with two arguments (4, 5)
+(fn [f] (f 4 5))
+(= 20 ((fn [f] (f 4 5))
+       *))
+```
+
+```clj
+;; Takes a function argument which operates on 5
+#(% 5)
+(= 25 (#(% 5) #(* % %)) ; true
+```
