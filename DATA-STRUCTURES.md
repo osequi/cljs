@@ -66,4 +66,7 @@
   - Sum types
     - Tagged, or disjoint unions
     - Variant, coproduct types
+- In Clojure it's perhaps about / around polymorphism
 - https://en.wikipedia.org/wiki/Algebraic_data_type
+- https://jrsinclair.com/articles/2019/algebraic-data-types-what-i-wish-someone-had-explained-about-functional-programming/
+- https://youtu.be/qe60zwUAOqE
