@@ -1,5 +1,16 @@
 # Cheatsheet
 
+## edn
+
+| DSL       | Transforms to edn via |
+| --------- | --------------------- |
+| HTML, JSX | Hiccup                |
+| CSS       | Garden                |
+| GraphQL   | EQL                   |
+| Spec      | Malli                 |
+| Routing   | Reitit                |
+| Regexp    | Regal                 |
+
 ## Syntax
 
 | Symbols / Keywords | Meaning                                     |
@@ -122,5 +133,5 @@
 ```clj
 ;; Takes a function argument which operates on 5
 #(% 5)
-(= 25 (#(% 5) #(* % %)) ; true
+(= 25 (#(% 5) #(* % %))
 ```
