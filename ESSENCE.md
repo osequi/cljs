@@ -1,5 +1,12 @@
 # Essence
 
+## High level overview
+
+- https://osequi.substack.com/p/it-starts-and-ends-with-edn
+  => [Data structures](/DATA-STRUCTURES) theory is a must !!!
+
+## General
+
 - General purpose
 - Dynamic
 - Pure functions
